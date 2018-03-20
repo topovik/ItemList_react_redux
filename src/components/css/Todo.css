@@ -1,0 +1,40 @@
+.todo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    background: rosybrown;
+    margin-top: 10px;
+}
+
+.text {
+    flex-grow: 2;
+    font-size: 35px;
+    font-weight: bold;
+    color: royalblue;
+}
+
+.score {
+    display: flex;
+    margin-right: 40px;
+}
+
+.button {
+    display: flex;
+    margin-right: 40px;
+}
+
+.score p {
+    margin-left: 15px;
+    font-size: 35px;
+    font-weight: bold;
+    color: slateblue;
+}
+
+.button button {
+    margin-left: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 5px;
+    color: tomato;
+}
