@@ -12,15 +12,14 @@ class AddTodo extends Component {
 
         this.onChangeText = this.onChangeText.bind(this)
         this.onChangeCount = this.onChangeCount.bind(this)
-        this.onAdd = this.onAdd.bind(this)
     }
 
     render() {
         return(
             <section className='header'>
-            <span>Items:</span><input value={this.state.text} onChange={this.onChangeText} type="text"/>
-            <span>Count:</span><input value={this.state.count} onChange={this.onChangeCount} type="number"/>
-            <button className='add' onClick={this.onAdd}>Add</button>
+                <span>Items:</span><input value={this.state.text} onChange={this.onChangeText} type="text"/>
+                <span>Count:</span><input value={this.state.count} onChange={this.onChangeCount} type="number"/>
+                <button className='add' onClick={() => this.props.todoAdd(this.state.text, this.state.count, Date.now())}>Add</button>
             </section>
         );
     }
@@ -33,9 +32,6 @@ class AddTodo extends Component {
         this.setState({count: event.target.value})
     }
 
-    onAdd() {
-        this.props.store.dispatch({ type: 'ADD_TODO', text: this.state.text, count: this.state.count, id: Date.now() })
-    }
 }
 
 export default AddTodo

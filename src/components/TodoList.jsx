@@ -3,18 +3,13 @@ import Todo from './Todo'
 import './css/TodoList.css'
 
 class TodoList extends Component {
-    constructor(props) {
-        super(props)
-
-    props.store.subscribe(() => this.forceUpdate());
-
-    }
-
     render() {
-        const list = this.props.store.getState()
-            .map(todo => 
-            <Todo todo={todo} key={todo.id} store={this.props.store}/>
-        )
+        const list = this.props.state.map((todo) => {
+            return <Todo todoRemove={this.props.todoRemove} todoUp={this.props.todoUp} todo={todo} key={todo.id} />
+        }
+    )
+    console.log(list)
+
         return(
             <section className='list'>
                 { list }
@@ -23,4 +18,7 @@ class TodoList extends Component {
     }
 }
 
+
 export default TodoList
+
+

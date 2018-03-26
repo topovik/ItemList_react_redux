@@ -9,7 +9,6 @@ class Todo extends Component {
             score: 0
         }
 
-        this.onRemove = this.onRemove.bind(this)
         this.onUp = this.onUp.bind(this)
     }
 
@@ -23,14 +22,10 @@ class Todo extends Component {
                         </section>
                         <section className='button'>
                             <button onClick={this.onUp}>up</button>
-                            <button onClick={this.onRemove}>remove</button>
+                            <button onClick={() => this.props.todoRemove(this.props.todo.id)}>remove</button>
                         </section>
             </section>
         );
-    }
-
-    onRemove() {
-        this.props.store.dispatch({type: 'REMOVE_TODO', id: this.props.todo.id})
     }
 
     onUp() {
